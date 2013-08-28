@@ -18,6 +18,7 @@ class NewQuoteSOAPService(DefinitionBase):
     @rpc(String,String,String,String,String,String,String,String,String,String,String,String, _returns=String)
     def updatequotewithparameters(self, quote_id,ExternalReference,Grossvalue,netvalue,postingDate,RefDate,SoldToParty,SoldToPartyAdd,Status,TaxAmt,ValidFrm,ValidTo):
         logging.info("SAP is sending quote with more parameters")
+        logging.info(locals())
         logging.info("CONNECTING TO SALESFORCE PARTNER WSDL FOR SESSION ID")
         url = "https://login.salesforce.com/services/Soap/u/28.0"
 

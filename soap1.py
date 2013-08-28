@@ -91,10 +91,7 @@ def quote_id_to_sf(session_id,quote_id,ExternalReference,Grossvalue,netvalue,pos
                         <quot:ExternalReference>{{external}}</quot:ExternalReference>
                         <quot:Grossvalue>{{gross}}</quot:Grossvalue>
                         <quot:netvalue>{{netvalue}}</quot:netvalue>
-                        <quot:postingDate>{{postingDate}}</quot:postingDate>
-                        <quot:RefDate>{{RefDate}}</quot:RefDate>
                         <quot:SoldToParty>{{SoldToParty}}</quot:SoldToParty>
-                        <quot:SoldToPartyAdd>{{SoldToPartyAdd}}</quot:SoldToPartyAdd>
                         <quot:Status>{{Status}}</quot:Status>
                         <quot:TaxAmt>{{TaxAmt}}</quot:TaxAmt>
                         <quot:ValidFrm>{{ValidFrm}}</quot:ValidFrm>

@@ -1,14 +1,16 @@
 # imports
 import os
 import sys
-
+import settings
 #activate_this = os.path.join("/home/ubuntu/venv", "bin/activate_this.py")
 #execfile(activate_this, dict(__file__=activate_this))
 # Sets the path for WSGI to read the Django app properly
-sys.path.append('/home/venkatesh/sap_sf/')
+sys.path.append('/home/ubuntu/sap_sf/')
+#sys.path.append('/home/ubuntu/gconnect-sap/sap_sync/')
 
 # "djangoproj" should be the subdirectory within your root where the Django project's root is.
-os.environ['DJANGO_SETTINGS_MODULE'] = 'sap_sf.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
+#os.environ.setdefault("DJANGO_SETTINGS_MODULE", "/home/ubuntu/sap_sf.settings")
 os.environ['PATH'] = '/home/ubuntu/venv/bin:' + os.environ['PATH']
 # another import--should really be at the top, but whatever
 import django.core.handlers.wsgi

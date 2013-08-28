@@ -18,6 +18,7 @@ class QuoteSOAPService(DefinitionBase):
     @rpc(String, _returns=String)
     def updatequote(self, quote_id):
         logging.info("SAP is sending quote")
+        logging.info("CONNECTING TO SALESFORCE PARTNER WSDL FOR SESSION ID")
         url = "https://login.salesforce.com/services/Soap/u/28.0"
 
         data = """<?xml version="1.0" encoding="UTF-8"?>
@@ -60,10 +61,11 @@ class QuoteSOAPService(DefinitionBase):
         head = httplib2.Http()
     #    head.follow_all_redirects = True
         response, content = head.request(url, "POST", smart_str(data), headers)
+        logging.info("########### SESSION ID response ###############%s"%response)
+        logging.info("########## SESSION ID content ##############%s"%content)
         if response.get('status') == '200':
+            logging.info("GOT THE SESSION ID FROM SALESFORCE")
             xml = XML(content)
-            logging.info("response %s"%response)
-            logging.info("content %s"%content)
             session_response=xml.find("{http://schemas.xmlsoap.org/soap/envelope/}Body").getchildren()[0]
             session_id = session_response[0][4].text
             quote_id_to_sf(session_id,quote_id)
@@ -73,6 +75,7 @@ class QuoteSOAPService(DefinitionBase):
         return "OK"
 
 def quote_id_to_sf(session_id,quote_id):
+        logging.info("############## CONNECTING TO SALESFORCE QUOTE WSDL ##############")
         url = "https://ap1.salesforce.com/services/Soap/class/QuoteClass1"
 
         data = """<?xml version="1.0" encoding="UTF-8"?>
@@ -107,8 +110,8 @@ def quote_id_to_sf(session_id,quote_id):
         head = httplib2.Http()
     #    head.follow_all_redirects = True
         response, content = head.request(url, "POST", smart_str(data), headers)
-        logging.info("######################### quote response ############## %s"%response)
-        logging.info("###################### quote content ################# %s"%content)
+        logging.info("######################### QUOTE response ############## %s"%response)
+        logging.info("###################### QUOTE content ################# %s"%content)
         if response.get('status') == "200":
             xml = XML(content)
             quote_response=xml.find("{http://schemas.xmlsoap.org/soap/envelope/}Body").getchildren()[0]

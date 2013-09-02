@@ -45,8 +45,10 @@ class NewQuoteSOAPService(DefinitionBase):
         c = Context({
 #            "username": "testmogo@iserviceglobe.net",
 #            "password": "venkatesh123ffk0XM9LgYDkBpmRJEJ6PuL7g"
-            "username": "admin@sambodhi.com",
-            "password": "sfdc*123Lw8jQCSB0ygTot7YagKHoiBJK"
+#            "username": "admin@sambodhi.com",
+#            "password": "sfdc*123Lw8jQCSB0ygTot7YagKHoiBJK"
+            "username": "admin@isg.com",
+            "password": "iservice123"
         })
         data = t.render(c)
 

@@ -48,7 +48,7 @@ class NewQuoteSOAPService(DefinitionBase):
 #            "username": "admin@sambodhi.com",
 #            "password": "sfdc*123Lw8jQCSB0ygTot7YagKHoiBJK"
             "username": "admin@isg.com",
-            "password": "iservice123"
+            "password": "iservice123ZmYFLUDAgDlyV068L9mFxyNF5"
         })
         data = t.render(c)
 

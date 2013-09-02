@@ -79,29 +79,29 @@ class NewQuoteSOAPService(DefinitionBase):
 
 def quote_id_to_sf(session_id,quote_id,ExternalReference,Grossvalue,netvalue,postingDate,RefDate,SoldToParty,SoldToPartyAdd,Status,TaxAmt,ValidFrm,ValidTo):
         logging.info("############## CONNECTING TO SALESFORCE QUOTE WSDL ##############")
-        url = "https://ap1.salesforce.com/services/Soap/class/QuoteClass"
+        url = "https://na15.salesforce.com/services/Soap/class/QuoteClass"
 
         data = """<?xml version="1.0" encoding="UTF-8"?>
-            <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:quot="http://soap.sforce.com/schemas/class/QuoteClass">
-                <soapenv:Header>
-                    <quot:SessionHeader>
-                        <quot:sessionId>{{session_id}}</quot:sessionId>
-                    </quot:SessionHeader>
-                </soapenv:Header>
-                <soapenv:Body>
-                    <quot:insertQuote>
-                        <quot:quoteId>{{quote_id}}</quot:quoteId>
-                        <quot:ExternalReference>{{external}}</quot:ExternalReference>
-                        <quot:Grossvalue>{{gross}}</quot:Grossvalue>
-                        <quot:netvalue>{{netvalue}}</quot:netvalue>
-                        <quot:SoldToParty>{{SoldToParty}}</quot:SoldToParty>
-                        <quot:Status>{{Status}}</quot:Status>
-                        <quot:TaxAmt>{{TaxAmt}}</quot:TaxAmt>
-                        <quot:ValidFrm>{{ValidFrm}}</quot:ValidFrm>
-                        <quot:ValidTo>{{ValidTo}}</quot:ValidTo>
-                    </quot:insertQuote>
-                </soapenv:Body>
-            </soapenv:Envelope>"""
+    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:quot="http://soap.sforce.com/schemas/class/QuoteClass">
+       <soapenv:Header>
+          <quot:SessionHeader>
+             <quot:sessionId>{{session_id}}</quot:sessionId>
+          </quot:SessionHeader>
+       </soapenv:Header>
+       <soapenv:Body>
+          <quot:insertQuote>
+             <quot:quoteId>{{quote_id}}</quot:quoteId>
+             <quot:ExternalReference>{{external}}</quot:ExternalReference>
+             <quot:Grossvalue>{{gross}}</quot:Grossvalue>
+             <quot:netvalue>{{netvalue}}</quot:netvalue>
+             <quot:SoldToParty>{{SoldToParty}}</quot:SoldToParty>
+             <quot:Status>{{Status}}</quot:Status>
+             <quot:TaxAmt>{{TaxAmt}}</quot:TaxAmt>
+             <quot:ValidFrm>{{ValidFrm}}</quot:ValidFrm>
+             <quot:ValidTo>{{ValidTo}}</quot:ValidTo>
+          </quot:insertQuote>
+       </soapenv:Body>
+    </soapenv:Envelope>"""
         t = Template(data)
         c = Context({
             "session_id": session_id,
@@ -125,7 +125,7 @@ def quote_id_to_sf(session_id,quote_id,ExternalReference,Grossvalue,netvalue,pos
 
         headers = {
             'Content-Type': 'text/xml; charset=utf-8',
-            'SOAPAction' : 'https://ap1.salesforce.com/services/Soap/class/QuoteClass'
+            'SOAPAction' : 'https://na15.salesforce.com/services/Soap/class/QuoteClass'
         }
 #        httplib2.debuglevel = 1 
 

@@ -107,14 +107,14 @@ def quote_id_to_sf(session_id,quote_id,ExternalReference,Grossvalue,netvalue,pos
             "session_id": session_id,
             "quote_id": quote_id,
             "external": ExternalReference,
-            "gross": Grossvalue if Grossvalue else 0.00 ,
-            "netvalue": netvalue,
+            "gross": Grossvalue if Grossvalue else 0.00,
+            "netvalue": netvalue if netvalue else 0.00,
             "postingDate" : postingDate,
             "RefDate" : RefDate,
             "SoldToParty" : SoldToParty,
             "SoldToPartyAdd" : SoldToPartyAdd,
             "Status" : Status,
-            "TaxAmt" : TaxAmt,
+            "TaxAmt" : TaxAmt if TaxAmt else 0.00,
             "ValidFrm" : ValidFrm,
             "ValidTo" : ValidTo
         })

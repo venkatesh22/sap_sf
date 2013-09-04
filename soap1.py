@@ -107,7 +107,7 @@ def quote_id_to_sf(session_id,quote_id,ExternalReference,Grossvalue,netvalue,pos
             "session_id": session_id,
             "quote_id": quote_id,
             "external": ExternalReference,
-            "gross": Grossvalue,
+            "gross": Grossvalue if Grossvalue else 0.00 ,
             "netvalue": netvalue,
             "postingDate" : postingDate,
             "RefDate" : RefDate,
